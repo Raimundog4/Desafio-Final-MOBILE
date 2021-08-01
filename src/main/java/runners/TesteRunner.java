@@ -11,7 +11,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 		plugin = {"pretty"},
 		features = "src\\main\\resources\\features",
 		glue = "stepdefinitions",
-		tags = {"@ExcluirDespesa"},
+		tags = {"@End2End"},
 		snippets = SnippetType.CAMELCASE,
 		monochrome = true,
 		dryRun = false

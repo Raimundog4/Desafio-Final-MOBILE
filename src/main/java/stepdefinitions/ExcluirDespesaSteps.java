@@ -10,7 +10,7 @@ public class ExcluirDespesaSteps {
 
 	ExcluirDespesaPage edp = new ExcluirDespesaPage(driver);
 	
-	@Quando("acionar o menu Transacoes")
+	@Quando("acionar o menu transacoes")
 	public void acionarOMenuTransacoes() {
 		edp.acionarMenuTransacoes();
 	}
@@ -20,7 +20,7 @@ public class ExcluirDespesaSteps {
 		edp.selecionarDespesa();
 	}
 
-	@Quando("acionar a opcao Excluir")
+	@Quando("acionar a opcao excluir")
 	public void acionarAOpcaoExcluir() {
 		edp.acionarBotarExcluir();
 	}
