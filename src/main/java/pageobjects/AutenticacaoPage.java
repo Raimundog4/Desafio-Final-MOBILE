@@ -1,7 +1,7 @@
 package pageobjects;
 
 import static org.junit.Assert.assertTrue;
-import static utils.Utils.driver;
+import static utils.Utils.*;
 import static utils.Utils.esperarAlgunsSegundos;
 
 import org.openqa.selenium.support.PageFactory;
@@ -52,42 +52,37 @@ public class AutenticacaoPage {
 	
 	public void acionarBotaoContinuarSemCriarConta() throws Exception {
 		botaoContinuarSemCriarConta.click();
-		esperarAlgunsSegundos(2000L);
 	}
 
 	public void acionarBotaoComecar() throws Exception {
 		botaoComecar.click();
-		esperarAlgunsSegundos(2000L);
 	}
 
 	public void interagindoComCampoDeBusca(String moeda) throws Exception {
-		botaoBuscar.click();
-		esperarAlgunsSegundos(2000L);
+//		botaoBuscar.click();
+//		esperarAlgunsSegundos(2000L);
 
-		driver.getKeyboard().sendKeys(moeda);
-		esperarAlgunsSegundos(1000L);
+		inputTextAppiumCommand(botaoBuscar, moeda);
+		esperarAlgunsSegundos(2000L);
 	}
 
 	public void adicionandoSaldoPrincipal(String valor) throws Exception {
 
-		driver.getKeyboard().sendKeys(valor);
+		inputTextAppiumCommand(inserirSaldoEmContaPrincipal, valor);
 		esperarAlgunsSegundos(2000L);
 
 	}
 
 	public void acionarBotaoProximo() throws Exception {
 		botaoProximo.click();
-		esperarAlgunsSegundos(2000L);
 	}
 
 	public void acionarBotaoDeComecar() throws Exception {
 		botaoDeComecar.click();
-		esperarAlgunsSegundos(2000L);
 	}
 
 	public void validarTelasBoasVindas() throws Exception {
 		assertTrue(telaBoasVindas.isDisplayed());
-		esperarAlgunsSegundos(2000L);
 	}
 	
 //	public void selecionarMoeda(String valor) {

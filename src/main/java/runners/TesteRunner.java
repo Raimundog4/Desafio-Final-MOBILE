@@ -10,8 +10,8 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 @CucumberOptions(
 		plugin = {"pretty"},
 		features = "src\\main\\resources\\features",
-		glue = "steps",
-		tags = {"@End2End"},
+		glue = "stepdefinitions",
+		tags = {"@EditarDespesa"},
 		snippets = SnippetType.CAMELCASE,
 		monochrome = true,
 		dryRun = false

@@ -12,5 +12,5 @@ Funcionalidade: Despesa
     E passar pelo tutorial
     E inserir o valor "70" como despesa
     E escolher a categoria de despesa como "Compras de mercado"
-    E adcionar um comentario e acionar o botao adicionar
+    E adicionar um comentario "Despesa" e acionar o botao adicionar
     Entao o aplicativo deve apresentar a nova

@@ -2,6 +2,7 @@ package pageobjects;
 
 import static utils.Utils.driver;
 import static utils.Utils.esperarAlgunsSegundos;
+import static utils.Utils.inputTextAppiumCommand;
 
 import org.openqa.selenium.support.PageFactory;
 
@@ -20,29 +21,32 @@ public class RendaPage {
 	@AndroidFindBy(xpath =  "//android.view.View[@index='4']")
 	private MobileElement menuRenda;
 	
+	@AndroidFindBy(xpath = "//android.widget.EditText[@index='0']")
+	private MobileElement campoValor;
+	
 	@AndroidFindBy(accessibility = "R$ 100,00")
 	private MobileElement rendaAdicionada;
 	
+	@AndroidFindBy(accessibility = "Total\nR$ 300,00")
+	private MobileElement totalSaldo;
+	
 	public void acionarMenuRenda() throws Exception {
 		menuRenda.click();
-		esperarAlgunsSegundos(2000L);
 	}
 	
 	public void adicionarSaldoRenda(String renda) throws Exception {
-		driver.getKeyboard().sendKeys(renda);
+		inputTextAppiumCommand(campoValor, renda);
 		esperarAlgunsSegundos(2000L);
 	}
 	
 	public void selecionarCategoria(String categoria) throws Exception {
 		MobileElement selecionarCategoria = (MobileElement) driver.findElement(MobileBy.AccessibilityId(categoria));
 		selecionarCategoria.click();
-		esperarAlgunsSegundos(2000L);
 	}
 	
 public boolean validacaoRenda() throws Exception {
 		
-		if (rendaAdicionada.isDisplayed()) {
-			esperarAlgunsSegundos(2000L);
+		if (rendaAdicionada.isDisplayed() && totalSaldo.isDisplayed()) {
 			return true;
 		}
 		return false;

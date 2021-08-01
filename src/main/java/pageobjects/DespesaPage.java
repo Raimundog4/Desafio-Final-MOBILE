@@ -1,8 +1,8 @@
 package pageobjects;
 
-import static org.junit.Assert.assertTrue;
 import static utils.Utils.driver;
 import static utils.Utils.esperarAlgunsSegundos;
+import static utils.Utils.inputTextAppiumCommand;
 
 import org.openqa.selenium.support.PageFactory;
 
@@ -25,10 +25,7 @@ public class DespesaPage {
 	private MobileElement botaoTela;
 	
 	@AndroidFindBy(xpath = "//android.widget.EditText[@index='0']")
-	private MobileElement campoSaldo;
-
-//	@AndroidFindBy(accessibility = "Compras de mercado")
-//	private MobileElement botaoCategoria;
+	private MobileElement campoValor;
 
 	@AndroidFindBy(xpath = "//android.widget.EditText[@text='Comentário']")
 	private MobileElement campoComentario;
@@ -36,53 +33,44 @@ public class DespesaPage {
 	@AndroidFindBy(accessibility = "Adicionar")
 	private MobileElement botaoAdicionar;
 	
-	@AndroidFindBy(xpath = "//android.widget.ImageView[@index='0']")
+	@AndroidFindBy(accessibility = "R$ 70,00")
 	private MobileElement despesaAdicionada;
 	
-	@AndroidFindBy(accessibility = "R$ 70,00")
-	private MobileElement despesaAdicionada2;
+	@AndroidFindBy(accessibility = "Total\nR$ 130,00")
+	private MobileElement saldoTotal;
 	
 	public void acionarBoatoAdicionarDespesa() throws Exception {
 		botaoAdicionarDespesa.click();
-		esperarAlgunsSegundos(2000L);
 	}
 	
 	public void passarTutorial() throws Exception {
-		botaoTela.click();
-		esperarAlgunsSegundos(2000L);
+		for (int i = 1; i <= 9; i++) {
+			botaoTela.click();
+		}
 	}
 	
 	public void adicionarSaldoDespesa(String depesa) throws Exception {
-		driver.getKeyboard().sendKeys(depesa);
+		inputTextAppiumCommand(campoValor, depesa);
 		esperarAlgunsSegundos(2000L);
 	}
 	
 	public void escolherCategoria(String categoria) throws Exception {
 		MobileElement botaoCategoria = (MobileElement) driver.findElement(MobileBy.AccessibilityId(categoria));
 		botaoCategoria.click();
-		esperarAlgunsSegundos(2000L);
 	}
 	
 	public void adicionarComentario(String comentario) throws Exception {
-		campoComentario.click();
-		driver.getKeyboard().sendKeys(comentario);
+		inputTextAppiumCommand(campoComentario, comentario);
 		esperarAlgunsSegundos(2000L);
 	}
 	
 	public void acionarBotaoAdicionar() throws Exception {
 		botaoAdicionar.click();
-		esperarAlgunsSegundos(2000L);
 	}
 	
-	public void validarAdicaoDespesa(String categoria) {
-//		assertEquals("true", despesaAdicionada.getAttribute("clickable"));
-		MobileElement validacao = (MobileElement) driver.findElement(MobileBy.xpath("//*[contains(@content-desc, '"+categoria+"')]"));
-		assertTrue(validacao.isDisplayed());
-	}
-	
-	public boolean validacaoDespesa() {
+	public boolean validarAdicaoDespesa() {
 		
-		if (despesaAdicionada2.isDisplayed()) {
+		if (despesaAdicionada.isDisplayed() && saldoTotal.isDisplayed()) {
 			return true;
 		}
 		return false;

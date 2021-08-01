@@ -13,5 +13,5 @@ Funcionalidade: Renda
     E passar pelo tutorial
     E inserir o valor "100" como renda
     E escolher a categoria de renda como Salario
-    E adcionar um comentario e acionar o botao adicionar
+    E adicionar um comentario "Renda" e acionar o botao adicionar
     Entao o aplicativo devera apresentar a nova renda
