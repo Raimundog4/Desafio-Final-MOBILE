@@ -10,7 +10,7 @@ Funcionalidade: Editar Despesa
   @SmokeTest
   Cenario: Editar despesa da conta com sucesso
     Quando abrir o menu transacoes
-    E selecionar a despesa
+    E acionar a despesa que deseja editar
     E acionar o botao Editar
     E aumentar o valor da despesa para "100"
     E mudar a categoria de despesa para "Transporte" e acionar o botao Salvar

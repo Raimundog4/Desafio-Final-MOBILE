@@ -15,8 +15,8 @@ public class EditarDespesaSteps {
 		edp.acionarMenuTransacoes();
 	}
 
-	@Quando("selecionar a despesa")
-	public void selecionarADespesa() {
+	@Quando("acionar a despesa que deseja editar")
+	public void selecionarADespesaQueDesejaEditar() {
 		edp.selecionarDespesa();
 	}
 
