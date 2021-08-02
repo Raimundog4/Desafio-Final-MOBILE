@@ -54,7 +54,7 @@ public class EditarDespesaPage {
 		
 		public void editarValor(String valor) throws Exception {
 			
-			//Enquanto o valor no campoVlor for diferente de zero o driver irá deletar os caracteres
+			//Enquanto o valor no campoValor for diferente de zero o driver irá deletar os caracteres
 			while (campoValor.getText().length() != 0) {
 				driver.getKeyboard().sendKeys(Keys.BACK_SPACE);
 			}

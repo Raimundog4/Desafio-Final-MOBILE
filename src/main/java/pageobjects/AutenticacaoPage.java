@@ -1,8 +1,8 @@
 package pageobjects;
 
 import static org.junit.Assert.assertTrue;
-import static utils.Utils.*;
 import static utils.Utils.esperarAlgunsSegundos;
+import static utils.Utils.inputTextAppiumCommand;
 
 import org.openqa.selenium.support.PageFactory;
 
@@ -59,8 +59,6 @@ public class AutenticacaoPage {
 	}
 
 	public void interagindoComCampoDeBusca(String moeda) throws Exception {
-//		botaoBuscar.click();
-//		esperarAlgunsSegundos(2000L);
 
 		inputTextAppiumCommand(botaoBuscar, moeda);
 		esperarAlgunsSegundos(2000L);
@@ -84,9 +82,4 @@ public class AutenticacaoPage {
 	public void validarTelasBoasVindas() throws Exception {
 		assertTrue(telaBoasVindas.isDisplayed());
 	}
-	
-//	public void selecionarMoeda(String valor) {
-//		botaoBuscar.sendKeys(valor);
-//	}
-
 }

@@ -47,7 +47,6 @@ public class AutenticacaoSteps {
 	public void inserirOSaldoEClicarEmProximo(String valor) throws Exception {
 		aut.adicionandoSaldoPrincipal(valor);
 		aut.acionarBotaoProximo();
-//		aut.acionarBotaoDeComecar();
 	}
 
 	@Entao("o sistema devera exibir tela de boas vindas")
